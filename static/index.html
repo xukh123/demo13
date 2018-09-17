@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script type='text/javascript' language="JavaScript">
+        banner_url = 'http://127.0.0.1:9000/api/1/';
+        $(function () {
+            $.get(banner_url, function (result) {
+                if (result.status === 200) {
+                    //dom操作
+                    $('#div_id').append(
+                        $('<a>').attr('href', result.data[0].detail_url).append(
+                            $('<img>').attr('src', 'http://127.0.0.1:9000/static/' + result.data[0].img_url)
+                        )
+                    )
+                }
+            })
+        })
+
+    </script>
+
+</head>
+<body>
+<div id="div_id">
+
+</div>
+
+</body>
+</html>
